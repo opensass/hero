@@ -60,20 +60,6 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "cfa8873f51c92e232f9bac4065cddef41b714152812bfc5f7672ba16d6ef8cd9"
 
 [[package]]
-name = "hero-yew-example"
-version = "0.1.0"
-dependencies = [
- "console_error_panic_hook",
- "hero",
- "log",
- "theme",
- "wasm-logger",
- "web-sys",
- "yew",
- "yew-router",
-]
-
-[[package]]
 name = "bumpalo"
 version = "3.14.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -604,6 +590,20 @@ dependencies = [
  "strum_macros",
  "web-sys",
  "yew",
+]
+
+[[package]]
+name = "hero-yew-example"
+version = "0.1.0"
+dependencies = [
+ "console_error_panic_hook",
+ "hero",
+ "log",
+ "theme",
+ "wasm-logger",
+ "web-sys",
+ "yew",
+ "yew-router",
 ]
 
 [[package]]

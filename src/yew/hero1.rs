@@ -14,7 +14,9 @@ pub struct BadgeProps {
     )]
     pub container_style: &'static str,
 
-    #[prop_or("width: 24px; height: 24px; display: flex; align-items: center; justify-content: center;")]
+    #[prop_or(
+        "width: 24px; height: 24px; display: flex; align-items: center; justify-content: center;"
+    )]
     pub icon_style: &'static str,
 
     #[prop_or(
@@ -73,7 +75,6 @@ pub struct ButtonProps {
     #[prop_or("primary-button")]
     pub class: &'static str,
 
-    // Replaced with FontAwesome icon class
     #[prop_or("fas fa-arrow-right")]
     pub icon: &'static str,
 
@@ -106,7 +107,12 @@ pub fn button(props: &ButtonProps) -> Html {
             aria-pressed={props.aria_pressed}
         >
             { props.label }
-            <i class={props.icon} style={props.icon_style} class={props.icon_class} aria-hidden="true" />
+            <i
+                class={props.icon}
+                style={props.icon_style}
+                class={props.icon_class}
+                aria-hidden="true"
+            />
         </button>
     }
 }
@@ -239,7 +245,9 @@ pub struct TabButtonProps {
     )]
     pub active_style: &'static str,
 
-    #[prop_or("width: 24px; height: 24px; display: flex; align-items: center; justify-content: center;")]
+    #[prop_or(
+        "width: 24px; height: 24px; display: flex; align-items: center; justify-content: center;"
+    )]
     pub icon_style: &'static str,
 
     #[prop_or(
