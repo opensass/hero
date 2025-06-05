@@ -1,4 +1,4 @@
-use hero::yew::hero2::Hero;
+use hero::yew::hero3::Hero;
 use yew::prelude::*;
 
 #[function_component(LandingPage)]
