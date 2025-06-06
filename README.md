@@ -21,7 +21,7 @@
 
 | Framework | Live      |
 | --------- | --------- |
-| Yew       | [![Netlify Status](https://api.netlify.com/api/v1/badges/a0efc7e9-f20e-4dd9-93e1-c8f4fde7506f/deploy-status)](https://hero.netlify.app) |
+| Yew       | [![Netlify Status](https://api.netlify.com/api/v1/badges/a0efc7e9-f20e-4dd9-93e1-c8f4fde7506f/deploy-status)](https://hero-rs.netlify.app) |
 | Dioxus    | TODO |
 | Leptos    | TODO |
 
