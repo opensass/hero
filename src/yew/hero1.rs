@@ -6,8 +6,8 @@ pub struct BadgeProps {
     #[prop_or("fas fa-rocket")]
     pub icon: &'static str,
 
-    #[prop_or("Launching Open SASS")]
-    pub text: &'static str,
+    #[prop_or("Launching Open SASS".to_string())]
+    pub text: String,
 
     #[prop_or(
         "display: flex; width: 230px; padding: 8px 16px 8px 8px; gap: 11px; align-items: center; justify-content: center; background: rgba(252, 92, 64, 0.08); border-radius: 99px; overflow: hidden;"
@@ -56,7 +56,7 @@ pub fn badge(props: &BadgeProps) -> Html {
             class={props.container_class}
         >
             <i class={props.icon} style={props.icon_style} aria-hidden="true" />
-            <span style={props.text_style} class={props.text_class}>{ props.text }</span>
+            <span style={props.text_style} class={props.text_class}>{ props.text.clone() }</span>
         </div>
     }
 }
@@ -119,13 +119,13 @@ pub fn button(props: &ButtonProps) -> Html {
 
 #[derive(Properties, PartialEq, Clone)]
 pub struct HeroContentProps {
-    #[prop_or("Build Ultra-Fast Web Apps with Open SASS")]
-    pub heading: &'static str,
+    #[prop_or("Build Ultra-Fast Web Apps with Open SASS".to_string())]
+    pub heading: String,
 
     #[prop_or(
-        "Open SASS brings modern Rust-powered speed to your web stack. Build scalable, reactive, and blazingly fast web apps with less effort and more performance."
+        "Open SASS brings modern Rust-powered speed to your web stack. Build scalable, reactive, and blazingly fast web apps with less effort and more performance.".to_string()
     )]
-    pub description: &'static str,
+    pub description: String,
 
     #[prop_or("hero-container")]
     pub container_class: &'static str,
@@ -200,14 +200,14 @@ pub fn hero_content(props: &HeroContentProps) -> Html {
                         role="heading"
                         aria-level="1"
                     >
-                        { props.heading }
+                        { props.heading.clone() }
                     </@>
                     <p
                         class={props.description_class}
                         style={props.description_style}
                         aria-label="Platform description"
                     >
-                        { props.description }
+                        { props.description.clone() }
                     </p>
                 </div>
                 <div class={props.cta_class} style={props.cta_style} aria-label="Call to Action">
@@ -337,11 +337,7 @@ pub fn process_tabs(props: &ProcessTabsProps) -> Html {
 
     html! {
         <div style={props.container_style}>
-            <div
-                role="tablist"
-                aria-label="Data platform process steps"
-                style={props.tablist_style}
-            >
+            <div role="tablist" aria-label="Platform process steps" style={props.tablist_style}>
                 { for props.tabs.iter().map(|(id, label, icon)| {
                     let is_active = *active_tab == *id;
                     let on_click = {
@@ -364,7 +360,7 @@ pub fn process_tabs(props: &ProcessTabsProps) -> Html {
     }
 }
 
-#[derive(Properties, PartialEq, Clone)]
+#[derive(Properties, PartialEq, Clone, Default)]
 pub struct HeroSectionProps {
     #[prop_or(
         "width: 100%; padding: 40px 64px 64px; display: flex; flex-direction: column; align-items: center; position: relative; overflow: hidden; min-height: calc(100vh - 96vh);"
@@ -380,6 +376,79 @@ pub struct HeroSectionProps {
         "display: flex; flex-direction: column; gap: 48px; align-items: center; width: 100%;"
     )]
     pub content_style: &'static str,
+
+    #[prop_or("Build Ultra-Fast Web Apps with Open SASS".to_string())]
+    pub heading: String,
+
+    #[prop_or(
+        "Open SASS brings modern Rust-powered speed to your web stack. Build scalable, reactive, and blazingly fast web apps with less effort and more performance.".to_string()
+    )]
+    pub description: String,
+
+    #[prop_or("hero-container")]
+    pub container_class: &'static str,
+
+    #[prop_or("hero-wrapper")]
+    pub wrapper_class: &'static str,
+
+    #[prop_or("hero-content")]
+    pub content_class: &'static str,
+
+    #[prop_or("hero-title")]
+    pub title_class: &'static str,
+
+    #[prop_or("hero-description")]
+    pub description_class: &'static str,
+
+    #[prop_or("hero-cta")]
+    pub cta_class: &'static str,
+
+    #[prop_or(
+        "width: 100%; padding: 40px 64px 64px; display: flex; flex-direction: column; align-items: center; position: relative; overflow: hidden; min-height: calc(100vh - 96vh);"
+    )]
+    pub container_style_inner: &'static str,
+
+    #[prop_or(
+        "width: 100%; max-width: 1440px; display: flex; flex-direction: column; align-items: center; gap: 80px; flex: 1; position: relative; z-index: 10;"
+    )]
+    pub wrapper_style: &'static str,
+
+    #[prop_or(
+        "display: flex; flex-direction: column; gap: 48px; align-items: center; width: 100%;"
+    )]
+    pub content_style_inner: &'static str,
+
+    #[prop_or("font-size: 48px; font-weight: bold; color: white; text-align: center;")]
+    pub title_style: &'static str,
+
+    #[prop_or(
+        "max-width: 700px; text-align: center; color: white; font-size: 18px; font-weight: 300; line-height: 1.6;"
+    )]
+    pub description_style: &'static str,
+
+    #[prop_or_default]
+    pub cta_style: &'static str,
+
+    #[prop_or("h1")]
+    pub heading_tag: &'static str,
+
+    #[prop_or("Hero Section")]
+    pub aria_label: &'static str,
+
+    #[prop_or("display: flex; justify-content: center; align-items: center; width: 100%;")]
+    pub tabs_container_style: &'static str,
+
+    #[prop_or(
+        "display: flex; gap: 16px; justify-content: center; align-items: center; border-radius: 12px; width: 100%; max-width: 800px;"
+    )]
+    pub tablist_style: &'static str,
+
+    #[prop_or(&[
+        ("connect", "Connect", "fas fa-link"),
+        ("explore", "Explore", "fas fa-search"),
+        ("activate", "Activate", "fas fa-bolt"),
+    ])]
+    pub tabs: &'static [(&'static str, &'static str, &'static str)],
 }
 
 #[function_component(Hero)]
@@ -388,8 +457,29 @@ pub fn hero(props: &HeroSectionProps) -> Html {
         <section id="main-content" aria-labelledby="hero-heading" style={props.section_style}>
             <div style={props.container_style}>
                 <div style={props.content_style}>
-                    <HeroContent />
-                    <ProcessTabs />
+                    <HeroContent
+                        heading={props.heading.clone()}
+                        description={props.description.clone()}
+                        container_class={props.container_class}
+                        wrapper_class={props.wrapper_class}
+                        content_class={props.content_class}
+                        title_class={props.title_class}
+                        description_class={props.description_class}
+                        cta_class={props.cta_class}
+                        container_style={props.container_style_inner}
+                        wrapper_style={props.wrapper_style}
+                        content_style={props.content_style_inner}
+                        title_style={props.title_style}
+                        description_style={props.description_style}
+                        cta_style={props.cta_style}
+                        heading_tag={props.heading_tag}
+                        aria_label={props.aria_label}
+                    />
+                    <ProcessTabs
+                        container_style={props.tabs_container_style}
+                        tablist_style={props.tablist_style}
+                        tabs={props.tabs}
+                    />
                 </div>
             </div>
         </section>

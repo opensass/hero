@@ -5,8 +5,6 @@
 #![cfg_attr(docsrs, feature(doc_auto_cfg))]
 #![doc = include_str!("../README.md")]
 
-pub mod common;
-
 #[cfg(feature = "yew")]
 pub mod yew;
 
@@ -15,5 +13,3 @@ pub mod dioxus;
 
 #[cfg(feature = "lep")]
 pub mod leptos;
-
-pub use common::{ButtonType, Size, Variant};

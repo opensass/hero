@@ -108,13 +108,13 @@ pub struct HeroContentProps {
     #[prop_or("Open SASS")]
     pub badge_text: &'static str,
 
-    #[prop_or("Rust for Modern Web Development")]
-    pub title: &'static str,
+    #[prop_or("Rust for Modern Web Development".to_string())]
+    pub title: String,
 
     #[prop_or(
-        "Ship blazingly fast full stack Rust web applications in Rust with Open SASS; built for performance, productivity, and modern development."
+        "Ship blazingly fast full stack Rust web applications in Rust with Open SASS; built for performance, productivity, and modern development.".to_string()
     )]
-    pub description: &'static str,
+    pub description: String,
 
     #[prop_or("Get Started")]
     pub primary_button_text: &'static str,
@@ -304,7 +304,7 @@ pub fn service_card(props: &ServiceCardProps) -> Html {
     }
 }
 
-#[derive(Properties, PartialEq, Clone)]
+#[derive(Properties, PartialEq, Clone, Default)]
 pub struct HeroSectionProps {
     #[prop_or("https://dev-to-uploads.s3.amazonaws.com/uploads/articles/e0rnow0h59d13gwrafwg.png")]
     pub background_image: &'static str,
@@ -380,6 +380,81 @@ pub struct HeroSectionProps {
 
     #[prop_or("position: absolute; bottom: -5.5rem; right: -4.5rem; z-index: 2;")]
     pub card_bottom_right_style: &'static str,
+    #[prop_or("Open SASS")]
+    pub badge_text: &'static str,
+
+    #[prop_or("Rust for Modern Web Development".to_string())]
+    pub heading: String,
+
+    #[prop_or(
+        "Ship blazingly fast full stack Rust web applications in Rust with Open SASS; built for performance, productivity, and modern development.".to_string()
+    )]
+    pub description: String,
+
+    #[prop_or("Get Started")]
+    pub primary_button_text: &'static str,
+
+    #[prop_or("#contact")]
+    pub primary_button_href: &'static str,
+
+    #[prop_or(
+        "display: flex; flex-direction: column; align-items: flex-start; gap: 1.375rem; position: absolute; width: 40.0625rem; height: 28.5625rem; top: 50%; left: 3.75rem; transform: translate(0, -40.59%); z-index: 2;"
+    )]
+    pub section_style: &'static str,
+
+    #[prop_or_default]
+    pub section_class: &'static str,
+
+    #[prop_or(
+        "display: flex; flex-direction: column; align-items: flex-start; align-self: stretch; gap: 2.5rem;"
+    )]
+    pub main_style: &'static str,
+
+    #[prop_or_default]
+    pub main_class: &'static str,
+
+    #[prop_or(
+        "display: flex; flex-direction: column; align-items: flex-start; align-self: stretch; gap: 1.25rem;"
+    )]
+    pub text_style: &'static str,
+
+    #[prop_or_default]
+    pub text_class: &'static str,
+
+    #[prop_or(
+        "width: 40rem; height: 13.125rem; color: #19191a; font-family: Montserrat, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: clamp(2rem, 5vw, 3.75rem); font-weight: 580; line-height: clamp(2.5rem, 6vw, 4.375rem); letter-spacing: -0.0375rem; margin: 0;"
+    )]
+    pub title_style: &'static str,
+
+    #[prop_or_default]
+    pub title_class: &'static str,
+
+    #[prop_or(
+        "width: 41.9375rem; height: 5.25rem; color: #404146; font-family: Montserrat, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: clamp(1rem, 2.5vw, 1.125rem); font-weight: 462; line-height: clamp(1.5rem, 3vw, 1.75rem); margin: 0;"
+    )]
+    pub description_style: &'static str,
+
+    #[prop_or_default]
+    pub description_class: &'static str,
+
+    #[prop_or_default]
+    pub actions_class: &'static str,
+
+    #[prop_or("display: flex; align-items: center; gap: 1rem;")]
+    pub actions_style: &'static str,
+
+    #[prop_or(
+        "display: inline-flex; align-items: center; padding: 0.875rem 1.5rem; background-color: white; color: #19191a; font-weight: 600; border-radius: 2rem; text-decoration: none; font-family: Montserrat, sans-serif; font-size: 1rem; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); transition: all 0.3s ease;"
+    )]
+    pub primary_button_style: &'static str,
+
+    #[prop_or(
+        "display: inline-flex; justify-content: center; align-items: center; width: 2.75rem; height: 2.75rem; background-color: #19191a; color: white; border-radius: 50%; text-decoration: none; font-size: 1rem; transition: all 0.3s ease;"
+    )]
+    pub icon_button_style: &'static str,
+
+    #[prop_or("fas fa-arrow-up-right-from-square")]
+    pub icon_button_class: &'static str,
 }
 
 #[function_component(Hero)]
@@ -438,7 +513,28 @@ pub fn hero(props: &HeroSectionProps) -> Html {
             />
             <div style={layout_style} class={props.layout_class}>
                 <div style={left_content_style} class={props.left_content_class}>
-                    <HeroContent />
+                    <HeroContent
+                        badge_text={props.badge_text}
+                        title={props.heading.clone()}
+                        description={props.description.clone()}
+                        primary_button_text={props.primary_button_text}
+                        primary_button_href={props.primary_button_href}
+                        section_style={props.section_style}
+                        section_class={props.section_class}
+                        main_style={props.main_style}
+                        main_class={props.main_class}
+                        text_style={props.text_style}
+                        text_class={props.text_class}
+                        title_style={props.title_style}
+                        title_class={props.title_class}
+                        description_style={props.description_style}
+                        description_class={props.description_class}
+                        actions_class={props.actions_class}
+                        actions_style={props.actions_style}
+                        primary_button_style={props.primary_button_style}
+                        icon_button_style={props.icon_button_style}
+                        icon_button_class={props.icon_button_class}
+                    />
                 </div>
                 <div style={right_content_style} class={props.right_content_class}>
                     <HeroImage src={props.team_image} alt={props.team_image_alt} />

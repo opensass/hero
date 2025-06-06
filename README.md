@@ -1,6 +1,6 @@
 <div align="center">
 
-# 🧭 Hero
+# 🦸 Hero
 
 [![Crates.io](https://img.shields.io/crates/v/hero)](https://crates.io/crates/hero)
 [![Crates.io Downloads](https://img.shields.io/crates/d/hero)](https://crates.io/crates/hero)
@@ -19,27 +19,27 @@
 
 ## 🎬 Demo
 
-| Framework | Live Demo                                                                                                                                      |
-| --------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
-| Yew       | [![Netlify Status](https://api.netlify.com/api/v1/badges/a0efc7e9-f20e-4dd9-93e1-c8f4fde7506f/deploy-status)](https://hero.netlify.app)        |
-| Dioxus    | [![Netlify Status](https://api.netlify.com/api/v1/badges/a0efc7e9-f20e-4dd9-93e1-c8f4fde7506f/deploy-status)](https://browser-dio.netlify.app) |
-| Leptos    | TODO                                                                                                                                           |
+| Framework | Live      |
+| --------- | --------- |
+| Yew       | [![Netlify Status](https://api.netlify.com/api/v1/badges/a0efc7e9-f20e-4dd9-93e1-c8f4fde7506f/deploy-status)](https://hero.netlify.app) |
+| Dioxus    | TODO |
+| Leptos    | TODO |
 
 ## 📜 Intro
 
-**Hero** is a browser window emulator for Rust-based WASM frameworks like **Yew**, **Leptos**, and **Dioxus**. Designed to wrap embedded content in a mock browser frame, it offers complete control over styling, layout, and interactions.
+**Hero** is a highly customizable hero sections components for WASM Frameworks like **Yew**, **Leptos**, and **Dioxus**. It helps you build beautiful, responsive hero sections with minimal setup and maximum customization. 
 
 ## 🤔 Why Use Hero?
 
-1. **🖼️ Realistic Browser Look**: Simulates a browser window with address bar, controls (close, minimize, maximize), and content area.
+1. **📱 Responsive by Default**: Automatically adapts to different screen sizes with clean mobile-first layout support.
 
-1. **🔩 Highly Configurable**: Toggle visibility, customize styles, and control behavior with dozens of props.
+1. **🎨 Easy to Customize**: Configure layout, alignment, spacing, images, call-to-actions, and more using straightforward props.
 
-1. **📟 Accessible by Default**: Comes with semantic roles and ARIA attributes for screen readers and keyboard users.
+1. **🧩 Pluggable Content Areas**: Drop in your own headings, subheadings, images, buttons, or components with slot-like flexibility.
 
-1. **⚡ Interactive Hooks**: Emit callbacks on user actions like URL change, hover, click, blur, focus, and keyboard events.
+1. **🌈 Theming & Styling Freedom**: Comes unopinionated; Style it using Tailwind CSS, regular classes, or inline styles.
 
-1. **🎛️ Theming-Ready and Style-Agnostic**: Comes with sensible defaults but is easily styled via Tailwind, CSS classes, or inline styles.
+1. **⚙️ Framework Friendly**: Designed for seamless integration with **Yew**, **Leptos**, **Dioxus**, or any other WASM-based UI framework.
 
 ## Yew Usage
 
@@ -47,7 +47,7 @@
 
 Refer to [our guide](https://github.com/opensass/hero/blob/main/YEW.md) to integrate this component into your Yew app.
 
-## 🧬 Dioxus Usage
+## 🧬 Dioxus Usage (TODO)
 
 <!-- absolute url for docs.rs cause DIOXUS.md is not included in crate -->
 

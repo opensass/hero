@@ -92,22 +92,22 @@ pub struct HeroContentProps {
     #[prop_or("font-weight: 500; color:rgb(44, 21, 249);")]
     pub subheading_highlight_style: &'static str,
 
-    #[prop_or("Build Full-Stack Rusty Apps,")]
-    pub heading_text: &'static str,
+    #[prop_or("Build Full-Stack Rusty Apps,".to_string())]
+    pub heading_text: String,
 
-    #[prop_or("Blazingly Fast with Open SASS")]
-    pub heading_accent_text: &'static str,
+    #[prop_or("Blazingly Fast with Open SASS".to_string())]
+    pub heading_accent_text: String,
 
-    #[prop_or("Developer-friendly & Production-ready")]
-    pub subheading_strong_text: &'static str,
+    #[prop_or("Developer-friendly & Production-ready".to_string())]
+    pub subheading_strong_text: String,
 
     #[prop_or(".")]
     pub subheading_soft_text: &'static str,
 
-    #[prop_or(" Start scaling Rust apps today.")]
-    pub subheading_highlight_text: &'static str,
+    #[prop_or(" Start scaling Rust apps today.".to_string())]
+    pub subheading_highlight_text: String,
     #[prop_or_default]
-    pub cta_text: &'static str,
+    pub cta_text: String,
     #[prop_or_default]
     pub cta_variant: &'static str,
     #[prop_or_default]
@@ -123,23 +123,23 @@ pub fn hero_content(props: &HeroContentProps) -> Html {
             <div style={props.content_style}>
                 <h1 style={props.heading_style}>
                     <span style="font-weight: 700; color: #000;">
-                        { props.heading_text }
+                        { props.heading_text.clone() }
                         <br />
                     </span>
-                    <span style={props.heading_accent_style}>{ props.heading_accent_text }</span>
+                    <span style={props.heading_accent_style}>{ props.heading_accent_text.clone() }</span>
                 </h1>
                 <p style={props.subheading_style}>
                     <span style={props.subheading_strong_style}>
-                        { props.subheading_strong_text }
+                        { props.subheading_strong_text.clone() }
                     </span>
                     <span style={props.subheading_soft_style}>{ props.subheading_soft_text }</span>
                     <span style={props.subheading_highlight_style}>
-                        { props.subheading_highlight_text }
+                        { props.subheading_highlight_text.clone() }
                     </span>
                 </p>
             </div>
             <CTAButton
-                text={props.cta_text}
+                text={props.cta_text.clone()}
                 variant={props.cta_variant}
                 icon={props.cta_icon}
                 aria_label={props.cta_aria_label}
@@ -175,7 +175,7 @@ pub struct HeroSectionProps {
     pub content_props: HeroContentProps,
 
     #[prop_or_default]
-    pub cta_text: &'static str,
+    pub cta_text: String,
     #[prop_or_default]
     pub cta_variant: &'static str,
     #[prop_or_default]
@@ -192,7 +192,7 @@ pub fn hero_section(props: &HeroSectionProps) -> Html {
     html! {
         <section style={props.style} role="region" aria-labelledby="hero-heading">
             <HeroContent
-                cta_text={props.cta_text}
+                cta_text={props.cta_text.clone()}
                 cta_variant={props.cta_variant}
                 cta_icon={props.cta_icon}
                 cta_aria_label={props.cta_aria_label}
@@ -225,7 +225,7 @@ pub fn arrow_indicator(props: &ArrowIndicatorProps) -> Html {
 #[derive(Properties, PartialEq)]
 pub struct CTAButtonProps {
     #[prop_or_default]
-    pub text: &'static str,
+    pub text: String,
     #[prop_or_default]
     pub variant: &'static str,
 
@@ -311,7 +311,7 @@ pub fn cta_button(props: &CTAButtonProps) -> Html {
             aria-label={props.aria_label}
         >
             { icon }
-            <span style={text_style}>{ props.text }</span>
+            <span style={text_style}>{ props.text.clone() }</span>
         </button>
     }
 }
@@ -502,23 +502,23 @@ pub struct HeroProps {
     #[prop_or("font-weight: 500; color:rgb(44, 21, 249);")]
     pub subheading_highlight_style: &'static str,
 
-    #[prop_or("Build Full-Stack Rusty Apps,")]
-    pub heading_text: &'static str,
+    #[prop_or("Build Full-Stack Rusty Apps,".to_string())]
+    pub heading_text: String,
 
-    #[prop_or("Blazingly Fast with Open SASS")]
-    pub heading_accent_text: &'static str,
+    #[prop_or("Blazingly Fast with Open SASS".to_string())]
+    pub heading_accent_text: String,
 
-    #[prop_or("Developer-friendly & Production-ready")]
-    pub subheading_strong_text: &'static str,
+    #[prop_or("Developer-friendly & Production-ready".to_string())]
+    pub subheading_strong_text: String,
 
     #[prop_or(".")]
     pub subheading_soft_text: &'static str,
 
-    #[prop_or(" Start scaling Rust apps today.")]
-    pub subheading_highlight_text: &'static str,
+    #[prop_or(" Start scaling Rust apps today.".to_string())]
+    pub subheading_highlight_text: String,
 
-    #[prop_or("Get Started")]
-    pub cta_text: &'static str,
+    #[prop_or("Get Started".to_string())]
+    pub cta_text: String,
 
     #[prop_or("primary")]
     pub cta_variant: &'static str,
@@ -561,7 +561,9 @@ pub struct HeroProps {
         },
     ])]
     pub cards: Vec<PortfolioCardProps>,
-    #[prop_or("width: 133.581px; height: 71.334px; background-image: url('https://dev-to-uploads.s3.amazonaws.com/uploads/articles/sinvuvbm2bhew519kdl5.png'); background-size: cover; background-repeat: no-repeat; position: absolute; top: 66.818px; left: 883.545px; z-index: 3;")]
+    #[prop_or(
+        "width: 133.581px; height: 71.334px; background-image: url('https://dev-to-uploads.s3.amazonaws.com/uploads/articles/sinvuvbm2bhew519kdl5.png'); background-size: cover; background-repeat: no-repeat; position: absolute; top: 66.818px; left: 883.545px; z-index: 3;"
+    )]
     pub arrow_indicator_style: &'static str,
 }
 
@@ -591,25 +593,23 @@ pub fn hero(props: &HeroProps) -> Html {
                         subheading_strong_style: props.subheading_strong_style,
                         subheading_soft_style: props.subheading_soft_style,
                         subheading_highlight_style: props.subheading_highlight_style,
-                        heading_text: props.heading_text,
-                        heading_accent_text: props.heading_accent_text,
-                        subheading_strong_text: props.subheading_strong_text,
+                        heading_text: props.heading_text.clone(),
+                        heading_accent_text: props.heading_accent_text.clone(),
+                        subheading_strong_text: props.subheading_strong_text.clone(),
                         subheading_soft_text: props.subheading_soft_text,
-                        subheading_highlight_text: props.subheading_highlight_text,
+                        subheading_highlight_text: props.subheading_highlight_text.clone(),
                         ..Default::default()
                     }}
-                    cta_text={props.cta_text}
+                    cta_text={props.cta_text.clone()}
                     cta_variant={props.cta_variant}
                     cta_icon={props.cta_icon}
                     cta_aria_label={props.cta_aria_label}
                     recent_work_style={props.recent_work_style}
                 />
                 <PortfolioSection
-                    arrow_indicator_props={
-                        ArrowIndicatorProps {
+                    arrow_indicator_props={ArrowIndicatorProps {
                             style: props.arrow_indicator_style
-                        }
-                    }
+                        }}
                     portfolio_grid_props={PortfolioGridProps {
                         cards: props.cards.clone(),
                     }}

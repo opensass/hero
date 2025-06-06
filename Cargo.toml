@@ -3,7 +3,7 @@ name = "hero"
 version = "0.0.0"
 edition = "2024"
 rust-version = "1.85"
-description = "🧭 A highly customizable hero sections templates for WASM frameworks like Yew, Dioxus, and Leptos."
+description = "🦸 A highly customizable hero sections templates for WASM frameworks like Yew, Dioxus, and Leptos."
 license = "MIT"
 keywords = ["hero", "yew", "rust", "dioxus", "leptos"]
 categories = ["web-programming", "science"]
@@ -23,9 +23,6 @@ web-sys = { version = "0.3.77", features = [
     "Window",
     "MediaQueryList"
 ]}
-gloo-timers = "0.3.0"
-strum = "0.27.1"
-strum_macros = "0.27.1"
 
 [features]
 yew = ["dep:yew"]
