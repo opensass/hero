@@ -1,0 +1,35 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Roboto", sans-serif;
+  color: #5e5c7f;
+  background-color: #ffffff;
+  font-size: 16px;
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+*:focus {
+  outline: 3px solid #0066cc;
+  outline-offset: 2px;
+}
+
+@media (prefers-contrast: high) {
+  :root {
+    --focus-outline: 4px solid;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

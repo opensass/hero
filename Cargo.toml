@@ -21,13 +21,19 @@ leptos = { version = "0.8.0", optional = true }
 web-sys = { version = "0.3.77", features = [
     "Document",
     "Window",
-    "MediaQueryList"
+    "MediaQueryList",
+    "HtmlStyleElement"
 ]}
+urlencoding = { version = "2.1.3", optional = true }
+input-rs = { version = "0.2.5", features = ["yew"], optional = true }
+regex = { version = "1.11.1", optional = true }
+pride-rs = { version = "0.0.2", features = ["yew"], optional = true }
 
 [features]
 yew = ["dep:yew"]
 dio = ["dioxus"]
 lep = ["leptos"]
+gae = ["urlencoding", "input-rs", "regex", "pride-rs"]
 
 [profile.release]
 opt-level = "z"
