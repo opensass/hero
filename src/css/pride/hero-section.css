@@ -1,0 +1,22 @@
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-section {
+    height: auto;
+    margin-top: 50px;
+  }
+}
+
+@media print {
+  .hero-decorations {
+    display: none;
+  }
+}

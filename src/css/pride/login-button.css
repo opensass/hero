@@ -1,0 +1,23 @@
+.login-button:hover {
+  color: #7bcef2;
+  transform: translateY(-1px);
+}
+.login-button:focus {
+  color: #7bcef2;
+}
+.login-button.pressed {
+  transform: translateY(1px);
+}
+
+@media (max-width: 1400px) {
+  .login-button {
+    left: 85%;
+  }
+}
+@media (max-width: 768px) {
+  .login-button {
+    font-size: 18px;
+    top: 20px;
+    left: 80%;
+  }
+}

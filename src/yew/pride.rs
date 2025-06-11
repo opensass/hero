@@ -123,82 +123,14 @@ pub fn calendar_button(props: &CalendarButtonProps) -> Html {
     {
         use_effect_with((), move |_| {
             if let Some(document) = window().and_then(|w| w.document()) {
-                if document.get_element_by_id("add-calendar-styles").is_none() {
+                if document.get_element_by_id("add-calendar").is_none() {
                     let style: HtmlStyleElement = document
                         .create_element("style")
                         .unwrap()
                         .dyn_into()
                         .unwrap();
-                    style.set_id("add-calendar-styles");
-                    style.set_inner_text(
-                        r#"
-                        @keyframes pulse {
-                          0%,100%{transform:scale(1);}
-                          50%{transform:scale(1.05);}
-                        }
-                        .calendar-button:hover {
-                          transform: translateY(-2px);
-                          box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-                        }
-                        .calendar-button:focus {
-                          transform: translateY(-1px);
-                        }
-                        .calendar-button.pressed {
-                          transform: translateY(1px);
-                        }
-                        @media (max-width:1600px) {
-                          .calendar-button-container {
-                            display: flex;
-                            justify-content: center;
-                            margin: 20px 0;
-                          }
-                          .calendar-button {
-                            width: 280px !important;
-                            height: 100px !important;
-                          }
-                          .button-text {
-                            font-size: 16px !important;
-                            width: 90px !important;
-                            height: 40px !important;
-                            top: 25px !important;
-                            left: 30px !important;
-                          }
-                          .button-icon {
-                            width: 140px !important;
-                            height: 100px !important;
-                            left: 137px !important;
-                          }
-                          .calendar-icon {
-                            width: 50px !important;
-                            height: 35px !important;
-                          }
-                        }
-                        @media (max-width:768px) {
-                          .calendar-button {
-                            width: 240px !important;
-                            height: 80px !important;
-                            border-radius: 40px !important;
-                          }
-                          .button-text {
-                            font-size: 14px !important;
-                            width: 80px !important;
-                            height: 30px !important;
-                            top: 20px !important;
-                            left: 20px !important;
-                          }
-                          .button-icon {
-                            width: 120px !important;
-                            height: 80px !important;
-                            border-radius: 40px !important;
-                            left: 117px !important;
-                          }
-                          .calendar-icon {
-                            width: 40px !important;
-                            height: 28px !important;
-                          }
-                        }
-                    "#,
-                    );
+                    style.set_id("add-calendar");
+                    style.set_inner_text(include_str!("../css/pride/calendar-button.css"));
                     document.head().unwrap().append_child(&style).unwrap();
                 }
             }
@@ -381,68 +313,14 @@ pub struct BrandLogoProps {
 pub fn brand_logo(props: &BrandLogoProps) -> Html {
     use_effect_with((), |_| {
         if let Some(document) = window().and_then(|w| w.document()) {
-            if document.get_element_by_id("brand-logo-styles").is_none() {
+            if document.get_element_by_id("brand-logo").is_none() {
                 let style: HtmlStyleElement = document
                     .create_element("style")
                     .unwrap()
                     .dyn_into()
                     .unwrap();
-                style.set_id("brand-logo-styles");
-                style.set_inner_text(
-                    r#"
-                    @keyframes float {
-                        0%, 100% { transform: translateY(0px); }
-                        50% { transform: translateY(-10px); }
-                    }
-
-                    @media (max-width: 1200px) {
-                        .brand-logo {
-                            width: 300px;
-                            left: 60%;
-                        }
-                        .brand-title {
-                            font-size: 18px;
-                            letter-spacing: 10px;
-                            margin-left: 50px;
-                        }
-                        .logo-image {
-                            width: 250px;
-                            height: 230px;
-                            margin-left: 25px;
-                        }
-                        .logo-graphic {
-                            width: 240px;
-                            height: 200px;
-                        }
-                    }
-
-                    @media (max-width: 768px) {
-                        .brand-logo {
-                            width: 100%;
-                            height: 200px;
-                            position: relative;
-                            left: 0;
-                            backdrop-filter: none;
-                            background-color: transparent;
-                        }
-                        .brand-title {
-                            font-size: 16px;
-                            letter-spacing: 5px;
-                            text-align: center;
-                            margin: 10px 0;
-                        }
-                        .logo-image {
-                            width: 150px;
-                            height: 120px;
-                            margin: 0 auto;
-                        }
-                        .logo-graphic {
-                            width: 140px;
-                            height: 100px;
-                        }
-                    }
-                "#,
-                );
+                style.set_id("brand-logo");
+                style.set_inner_text(include_str!("../css/pride/calendar-button.css"));
                 document.head().unwrap().append_child(&style).unwrap();
             }
         }
@@ -956,59 +834,14 @@ pub struct EventImageProps {
 pub fn event_image(props: &EventImageProps) -> Html {
     use_effect_with((), |_| {
         if let Some(document) = window().and_then(|w| w.document()) {
-            if document.get_element_by_id("event-image-styles").is_none() {
+            if document.get_element_by_id("event-image").is_none() {
                 let style: HtmlStyleElement = document
                     .create_element("style")
                     .unwrap()
                     .dyn_into()
                     .unwrap();
-                style.set_id("event-image-styles");
-                style.set_inner_text(
-                    r#"
-                        @media (max-width: 1600px) {
-                            .main-event-image {
-                                width: 80% !important;
-                                height: 400px !important;
-                                position: relative !important;
-                            }
-                            .secondary-event-image {
-                                width: 70% !important;
-                                height: 350px !important;
-                                position: relative !important;
-                                top: -50px !important;
-                                left: 0 !important;
-                            }
-                            .circular-profile-image {
-                                width: 120px !important;
-                                height: 120px !important;
-                                position: relative !important;
-                                top: -100px !important;
-                                left: -100px !important;
-                            }
-                        }
-
-                        @media (max-width: 768px) {
-                            .main-event-image {
-                                width: 90% !important;
-                                height: 300px !important;
-                            }
-                            .secondary-event-image {
-                                width: 85% !important;
-                                height: 250px !important;
-                            }
-                            .circular-profile-image {
-                                width: 80px !important;
-                                height: 80px !important;
-                                top: -80px !important;
-                                left: -50px !important;
-                            }
-                            .curved-letter,
-                            .love-letter {
-                                font-size: 16px !important;
-                            }
-                        }
-                    "#,
-                );
+                style.set_id("event-image");
+                style.set_inner_text(include_str!("../css/pride/event-image.css"));
                 document.head().unwrap().append_child(&style).unwrap();
             }
         }
@@ -1162,36 +995,10 @@ pub fn login_button(props: &LoginButtonProps) -> Html {
 
     use_effect_with((), |_| {
         if let Some(document) = web_sys::window().unwrap().document() {
-            if document.get_element_by_id("login-button-styles").is_none() {
+            if document.get_element_by_id("login-button").is_none() {
                 let style = document.create_element("style").unwrap();
-                style.set_id("login-button-styles");
-                style.set_inner_html(
-                    r#"
-                    .login-button:hover {
-                        color: #7bcef2;
-                        transform: translateY(-1px);
-                    }
-                    .login-button:focus {
-                        color: #7bcef2;
-                    }
-                    .login-button.pressed {
-                        transform: translateY(1px);
-                    }
-
-                    @media (max-width: 1400px) {
-                        .login-button {
-                            left: 85%;
-                        }
-                    }
-                    @media (max-width: 768px) {
-                        .login-button {
-                            font-size: 18px;
-                            top: 20px;
-                            left: 80%;
-                        }
-                    }
-                "#,
-                );
+                style.set_id("login-button");
+                style.set_inner_html(include_str!("../css/pride/login-button.css"));
                 document.head().unwrap().append_child(&style).unwrap();
             }
         }
@@ -1343,30 +1150,10 @@ pub fn navigation(props: &NavigationProps) -> Html {
     {
         use_effect_with((), |_| {
             if let Some(document) = web_sys::window().and_then(|w| w.document()) {
-                if document.get_element_by_id("navigation-style").is_none() {
+                if document.get_element_by_id("navigation").is_none() {
                     let style = document.create_element("style").unwrap();
-                    style.set_id("navigation-style");
-                    style.set_inner_html(
-                        r#"
-                        @media (max-width: 1200px) {
-                            .navigation { left: 40px; }
-                            .navigation-list { width: 300px; gap: 15px; }
-                            .navigation-link { font-size: 16px; }
-                        }
-                        @media (max-width: 768px) {
-                            .navigation { left: 20px; top: 40px; }
-                            .navigation-list {
-                                flex-direction: column; width: auto; height: auto; gap: 10px;
-                            }
-                            .navigation-item { flex-direction: column; gap: 5px; }
-                        }
-                        .navigation-link:hover,
-                        .navigation-link:focus {
-                            color: #7bcef2;
-                            text-decoration: underline;
-                        }
-                    "#,
-                    );
+                    style.set_id("navigation");
+                    style.set_inner_html(include_str!("../css/pride/navigation.css"));
                     document.head().unwrap().append_child(&style).unwrap();
                 }
             }
@@ -1546,32 +1333,10 @@ pub struct HeaderProps {
 pub fn header(props: &HeaderProps) -> Html {
     use_effect_with((), |_| {
         if let Some(document) = web_sys::window().and_then(|w| w.document()) {
-            if document.get_element_by_id("header-style").is_none() {
+            if document.get_element_by_id("header").is_none() {
                 let style = document.create_element("style").unwrap();
-                style.set_id("header-style");
-                style.set_inner_html(
-                    r#"
-                    @media (max-width: 1600px) {
-                        .header-brand {
-                            left: 10%;
-                        }
-                        .header-inner {
-                            width: 90%;
-                            left: 5%;
-                        }
-                    }
-
-                    @media (max-width: 768px) {
-                        .header-website {
-                            font-size: 18px;
-                            width: 200px;
-                        }
-                        .header-inner {
-                            border-radius: 30px;
-                        }
-                    }
-                "#,
-                );
+                style.set_id("header");
+                style.set_inner_html(include_str!("../css/pride/header.css"));
                 document.head().unwrap().append_child(&style).unwrap();
             }
         }
@@ -1698,88 +1463,14 @@ pub struct PrideTitleProps {
 pub fn pride_title(props: &PrideTitleProps) -> Html {
     use_effect_with((), |_| {
         if let Some(document) = window().and_then(|w| w.document()) {
-            if document.get_element_by_id("pride-title-style").is_none() {
+            if document.get_element_by_id("pride-title").is_none() {
                 let style: HtmlStyleElement = document
                     .create_element("style")
                     .unwrap()
                     .dyn_into()
                     .unwrap();
-                style.set_id("pride-title-style");
-                style.set_inner_text(r#"
-                    @keyframes letterReveal {
-                        0% { opacity: 0; transform: translateY(50px) scale(0.8) rotateX(-90deg); }
-                        50% { opacity: 0.7; transform: translateY(-10px) scale(1.1) rotateX(-45deg); }
-                        100% { opacity: 1; transform: translateY(0) scale(1) rotateX(0deg); }
-                    }
-
-                    @keyframes letterPulse {
-                        0%, 100% { transform: scale(1); }
-                        50% { transform: scale(1.02); }
-                    }
-
-                    .title-letter:focus {
-                        outline: 3px solid var(--pride-blue);
-                        outline-offset: 5px;
-                        border-radius: var(--radius-sm);
-                    }
-
-                    @media (max-width: 1600px) {
-                        .pride-title {
-                            position: relative;
-                            top: 50px;
-                            left: 0;
-                            display: flex;
-                            flex-direction: column;
-                            align-items: center;
-                            gap: 20px;
-                        }
-
-                        .title-row {
-                            position: relative;
-                            justify-content: center;
-                        }
-
-                        .month-row {
-                            position: relative;
-                            top: 0;
-                            left: 0;
-                        }
-
-                        .title-letter {
-                            font-size: 80px;
-                            line-height: 120px;
-                            height: 120px;
-                        }
-                    }
-
-                    @media (max-width: 768px) {
-                        .title-letter {
-                            font-size: 60px;
-                            line-height: 80px;
-                            height: 80px;
-                            letter-spacing: 4px;
-                        }
-                    }
-
-                    @media (max-width: 480px) {
-                        .title-letter {
-                            font-size: 40px;
-                            line-height: 60px;
-                            height: 60px;
-                            letter-spacing: 2px;
-                        }
-                    }
-
-                    .title-letter--animated {
-                        opacity: 0;
-                        transform: translateY(50px) scale(0.8);
-                        animation: letterReveal 0.8s ease-out forwards;
-                    }
-
-                    .title-letter--animated:hover {
-                        animation: letterPulse 1s ease-in-out infinite;
-                    }
-                "#);
+                style.set_id("pride-title");
+                style.set_inner_text(include_str!("../css/pride/pride-title.css"));
                 document.head().unwrap().append_child(&style).unwrap();
             }
         }
@@ -1879,44 +1570,14 @@ pub fn pride_title(props: &PrideTitleProps) -> Html {
 fn inject_styles() {
     if let Some(win) = window() {
         if let Some(doc) = win.document() {
-            if doc.get_element_by_id("newsletter-styles").is_none() {
+            if doc.get_element_by_id("newsletter").is_none() {
                 let style = doc
                     .create_element("style")
                     .unwrap()
                     .dyn_into::<HtmlStyleElement>()
                     .unwrap();
-                style.set_id("newsletter-styles");
-                style.set_inner_text(
-                    r#"
-@keyframes pulse {
-  0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.05); }
-}
-
-@keyframes float {
-  0%,100% {transform: translateY(0);}
-  50% {transform: translateY(-10px);}
-}
-
-/* media queries */
-@media (max-width: 1024px) {
-  .signup-container { max-width: 600px; margin: 2rem auto; }
-  .event-info-grid { grid-template-columns: 1fr; gap: 1rem; }
-}
-@media (max-width: 768px) {
-  .signup-container { max-width: 90%; }
-  .signup-content { width: 95%; top: 30px; }
-  .count-text { font-size: 16px; }
-  .event-info-grid { gap: 0.75rem; }
-  .info-card { padding: 1rem; }
-  .card-icon { font-size: 1.5rem; }
-  .add-calendar-btn { padding: 0.75rem 1.5rem; gap: 0.5rem; }
-}
-@media (max-width: 480px) {
-  .add-calendar-btn { padding: 0.6rem 1.2rem; font-size: 0.9rem; }
-}
-                "#,
-                );
+                style.set_id("newsletter");
+                style.set_inner_text(include_str!("../css/pride/newsletter.css"));
                 doc.head().unwrap().append_child(&style).unwrap();
             }
         }
@@ -2300,34 +1961,14 @@ pub struct HeroSectionProps {
 pub fn hero_section(props: &HeroSectionProps) -> Html {
     use_effect_with((), |_| {
         if let Some(document) = window().and_then(|w| w.document()) {
-            if document.get_element_by_id("hero-section-styles").is_none() {
+            if document.get_element_by_id("hero-section").is_none() {
                 let style: HtmlStyleElement = document
                     .create_element("style")
                     .unwrap()
                     .dyn_into()
                     .unwrap();
-                style.set_id("hero-section-styles");
-                style.set_inner_text(
-                    r#"
-                    @keyframes float {
-                        0%, 100% { transform: translateY(0px); }
-                        50% { transform: translateY(-10px); }
-                    }
-
-                    @media (max-width: 768px) {
-                        .hero-section {
-                            height: auto;
-                            margin-top: 50px;
-                        }
-                    }
-
-                    @media print {
-                        .hero-decorations {
-                            display: none;
-                        }
-                    }
-                    "#,
-                );
+                style.set_id("hero-section");
+                style.set_inner_text(include_str!("../css/pride/hero-section.css"));
                 document.head().unwrap().append_child(&style).unwrap();
             }
         }
@@ -2422,50 +2063,12 @@ pub struct PridePageProps {
 pub fn hero(props: &PridePageProps) -> Html {
     use_effect_with((), move |_| {
         if let Some(doc) = window().and_then(|w| w.document()) {
-            if doc.get_element_by_id("pride-page-styles").is_none() {
+            if doc.get_element_by_id("pride-page").is_none() {
                 let style: HtmlStyleElement =
                     doc.create_element("style").unwrap().dyn_into().unwrap();
 
-                style.set_id("pride-page-styles");
-                style.set_inner_text(
-                    r#"
-@media (max-width: 1600px) {
-    .page-container {
-        width: 100vw;
-        height: auto;
-        min-height: 100vh;
-    }
-
-    .content-wrapper {
-        width: 96%;
-        height: auto;
-        min-height: 90vh;
-        border-radius: 40px;
-        left: 2%;
-        transform: none;
-    }
-
-    .main-content {
-        width: 95%;
-        height: auto;
-        min-height: 85vh;
-        border-radius: 30px;
-        left: 2.5%;
-        transform: none;
-    }
-}
-
-@media (max-width: 768px) {
-    .content-wrapper {
-        border-radius: 20px;
-    }
-
-    .main-content {
-        border-radius: 15px;
-    }
-}
-"#,
-                );
+                style.set_id("pride-page");
+                style.set_inner_text(include_str!("../css/pride/pride-page.css"));
 
                 doc.head().unwrap().append_child(&style).unwrap();
             }

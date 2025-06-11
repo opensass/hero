@@ -1,0 +1,42 @@
+@media (max-width: 1600px) {
+  .main-event-image {
+    width: 80% !important;
+    height: 400px !important;
+    position: relative !important;
+  }
+  .secondary-event-image {
+    width: 70% !important;
+    height: 350px !important;
+    position: relative !important;
+    top: -50px !important;
+    left: 0 !important;
+  }
+  .circular-profile-image {
+    width: 120px !important;
+    height: 120px !important;
+    position: relative !important;
+    top: -100px !important;
+    left: -100px !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .main-event-image {
+    width: 90% !important;
+    height: 300px !important;
+  }
+  .secondary-event-image {
+    width: 85% !important;
+    height: 250px !important;
+  }
+  .circular-profile-image {
+    width: 80px !important;
+    height: 80px !important;
+    top: -80px !important;
+    left: -50px !important;
+  }
+  .curved-letter,
+  .love-letter {
+    font-size: 16px !important;
+  }
+}

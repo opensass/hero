@@ -1,0 +1,87 @@
+@keyframes letterReveal {
+  0% {
+    opacity: 0;
+    transform: translateY(50px) scale(0.8) rotateX(-90deg);
+  }
+  50% {
+    opacity: 0.7;
+    transform: translateY(-10px) scale(1.1) rotateX(-45deg);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1) rotateX(0deg);
+  }
+}
+
+@keyframes letterPulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.02);
+  }
+}
+
+.title-letter:focus {
+  outline: 3px solid var(--pride-blue);
+  outline-offset: 5px;
+  border-radius: var(--radius-sm);
+}
+
+@media (max-width: 1600px) {
+  .pride-title {
+    position: relative;
+    top: 50px;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .title-row {
+    position: relative;
+    justify-content: center;
+  }
+
+  .month-row {
+    position: relative;
+    top: 0;
+    left: 0;
+  }
+
+  .title-letter {
+    font-size: 80px;
+    line-height: 120px;
+    height: 120px;
+  }
+}
+
+@media (max-width: 768px) {
+  .title-letter {
+    font-size: 60px;
+    line-height: 80px;
+    height: 80px;
+    letter-spacing: 4px;
+  }
+}
+
+@media (max-width: 480px) {
+  .title-letter {
+    font-size: 40px;
+    line-height: 60px;
+    height: 60px;
+    letter-spacing: 2px;
+  }
+}
+
+.title-letter--animated {
+  opacity: 0;
+  transform: translateY(50px) scale(0.8);
+  animation: letterReveal 0.8s ease-out forwards;
+}
+
+.title-letter--animated:hover {
+  animation: letterPulse 1s ease-in-out infinite;
+}

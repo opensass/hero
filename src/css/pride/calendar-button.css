@@ -1,0 +1,56 @@
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@media (max-width: 1200px) {
+  .brand-logo {
+    width: 300px;
+    left: 60%;
+  }
+  .brand-title {
+    font-size: 18px;
+    letter-spacing: 10px;
+    margin-left: 50px;
+  }
+  .logo-image {
+    width: 250px;
+    height: 230px;
+    margin-left: 25px;
+  }
+  .logo-graphic {
+    width: 240px;
+    height: 200px;
+  }
+}
+
+@media (max-width: 768px) {
+  .brand-logo {
+    width: 100%;
+    height: 200px;
+    position: relative;
+    left: 0;
+    backdrop-filter: none;
+    background-color: transparent;
+  }
+  .brand-title {
+    font-size: 16px;
+    letter-spacing: 5px;
+    text-align: center;
+    margin: 10px 0;
+  }
+  .logo-image {
+    width: 150px;
+    height: 120px;
+    margin: 0 auto;
+  }
+  .logo-graphic {
+    width: 140px;
+    height: 100px;
+  }
+}
