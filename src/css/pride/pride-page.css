@@ -1,0 +1,35 @@
+@media (max-width: 1600px) {
+  .page-container {
+    width: 100vw;
+    height: auto;
+    min-height: 100vh;
+  }
+
+  .content-wrapper {
+    width: 96%;
+    height: auto;
+    min-height: 90vh;
+    border-radius: 40px;
+    left: 2%;
+    transform: none;
+  }
+
+  .main-content {
+    width: 95%;
+    height: auto;
+    min-height: 85vh;
+    border-radius: 30px;
+    left: 2.5%;
+    transform: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .content-wrapper {
+    border-radius: 20px;
+  }
+
+  .main-content {
+    border-radius: 15px;
+  }
+}

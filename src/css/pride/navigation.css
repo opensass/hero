@@ -1,0 +1,33 @@
+@media (max-width: 1200px) {
+  .navigation {
+    left: 40px;
+  }
+  .navigation-list {
+    width: 300px;
+    gap: 15px;
+  }
+  .navigation-link {
+    font-size: 16px;
+  }
+}
+@media (max-width: 768px) {
+  .navigation {
+    left: 20px;
+    top: 40px;
+  }
+  .navigation-list {
+    flex-direction: column;
+    width: auto;
+    height: auto;
+    gap: 10px;
+  }
+  .navigation-item {
+    flex-direction: column;
+    gap: 5px;
+  }
+}
+.navigation-link:hover,
+.navigation-link:focus {
+  color: #7bcef2;
+  text-decoration: underline;
+}
